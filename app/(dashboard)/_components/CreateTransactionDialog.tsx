@@ -94,7 +94,7 @@ function CreateTransactionDialog({ trigger, type }: Props) {
                     </FormControl>
 
                     <FormDescription>
-                      Select a category for this transaction
+                      Select a category for this transaction.
                     </FormDescription>
                   </FormItem>
                 )}
