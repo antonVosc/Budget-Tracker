@@ -1,5 +1,13 @@
 # Budget-Tracker
-This is a budget tracker which I have made using Next.js, TypeScript, Prisma and Tailwind CSS.
+A simple and efficient personal budgeting tool that helps users track expenses, manage income, and gain insights into their financial habits.
+
+**Features**
+- **Transaction Management:** Add, edit, and delete income and expense transactions
+- **Category Organisation:** Categorise transactions for better financial organisation
+- **Spending Insights:** View spending trends with a summary dashboard
+- **Lightweight Design:** Simple and easy to use
+
+**Installation**
 
 1. 
 ```
@@ -16,7 +24,10 @@ cd Budget-Tracker/
 npm install
 ```
 
-4. 
+**Usage**
+
 ```
 npm run dev
 ```
+
+Follow the on-screen instructions to add transactions and view reports.
