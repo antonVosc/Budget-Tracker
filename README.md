@@ -7,6 +7,7 @@ A simple and efficient personal budgeting tool that helps users track expenses, 
 - **Spending Insights:** View spending trends with a summary dashboard
 - **Lightweight Design:** Simple and easy to use
 
+
 **Installation:**
 
 1. 
@@ -23,6 +24,7 @@ cd Budget-Tracker/
 ```
 npm install
 ```
+
 
 **Usage:**
 
