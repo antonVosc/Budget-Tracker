@@ -1,13 +1,13 @@
 # Budget-Tracker
 A simple and efficient personal budgeting tool that helps users track expenses, manage income, and gain insights into their financial habits.
 
-**Features**
+**Features:**
 - **Transaction Management:** Add, edit, and delete income and expense transactions
 - **Category Organisation:** Categorise transactions for better financial organisation
 - **Spending Insights:** View spending trends with a summary dashboard
 - **Lightweight Design:** Simple and easy to use
 
-**Installation**
+**Installation:**
 
 1. 
 ```
@@ -24,7 +24,7 @@ cd Budget-Tracker/
 npm install
 ```
 
-**Usage**
+**Usage:**
 
 ```
 npm run dev
