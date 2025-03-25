@@ -28,7 +28,7 @@ export function CurrencyComboBox() {
   const [open, setOpen] = React.useState(false);
   const isDesktop = useMediaQuery("(min-width: 768px)");
   const [selectedOption, setSelectedOption] = React.useState<Currency | null>(
-    null
+    null,
   );
   const userSettings = useQuery<UserSettings>({
     queryKey: ["userSettings"],
@@ -41,7 +41,7 @@ export function CurrencyComboBox() {
     }
 
     const userCurrency = Currencies.find(
-      (currency) => currency.value === userSettings.data.currency
+      (currency) => currency.value === userSettings.data.currency,
     );
 
     if (userCurrency) {
@@ -57,7 +57,7 @@ export function CurrencyComboBox() {
       });
 
       setSelectedOption(
-        Currencies.find((c) => c.value === data.currency) || null
+        Currencies.find((c) => c.value === data.currency) || null,
       );
     },
     onError: (e) => {
@@ -81,7 +81,7 @@ export function CurrencyComboBox() {
 
       mutation.mutate(currency.value);
     },
-    [mutation]
+    [mutation],
   );
 
   if (isDesktop) {
@@ -149,7 +149,7 @@ function OptionList({
               onSelect={(value) => {
                 setSelectedOption(
                   Currencies.find((priority) => priority.value === value) ||
-                    null
+                    null,
                 );
                 setOpen(false);
               }}

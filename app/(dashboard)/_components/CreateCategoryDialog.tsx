@@ -18,6 +18,7 @@ import {
   FormLabel,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { Popover, PopoverTrigger } from "@/components/ui/popover";
 import { TransactionType } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import {
@@ -25,7 +26,7 @@ import {
   CreateCategorySchemaType,
 } from "@/schema/categories";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { PlusSquareIcon } from "lucide-react";
+import { CircleOff, PlusSquareIcon } from "lucide-react";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
@@ -61,7 +62,7 @@ function CreateCategoryDialog({ type }: Props) {
             <span
               className={cn(
                 "m-1",
-                type === "income" ? "text-emerald-500" : "text-red-500"
+                type === "income" ? "text-emerald-500" : "text-red-500",
               )}
             >
               {type}
@@ -89,6 +90,43 @@ function CreateCategoryDialog({ type }: Props) {
 
                   <FormDescription>
                     Transaction Description (optional)
+                  </FormDescription>
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="icon"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Icon</FormLabel>
+
+                  <FormControl>
+                    <Popover>
+                      <PopoverTrigger asChild>
+                        <Button
+                          variant={"outline"}
+                          className="h-[100px] w-full"
+                        >
+                          {form.watch("icon") ? (
+                            <div>Selected icon</div>
+                          ) : (
+                            <div className="flex flex-col items-center gap-2">
+                              <CircleOff className="h-[48px] w-[48px]" />
+
+                              <p className="text-xs text-muted-foreground">
+                                Click to select
+                              </p>
+                            </div>
+                          )}
+                        </Button>
+                      </PopoverTrigger>
+                    </Popover>
+                  </FormControl>
+
+                  <FormDescription>
+                    This is how your category will appear in the app.
                   </FormDescription>
                 </FormItem>
               )}
