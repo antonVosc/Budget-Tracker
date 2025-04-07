@@ -1,7 +1,7 @@
 "use client";
 
-import { GetBalanceStatsResponseType } from "@/app/api/stats/balance/route";
-import { GetCategoriesStatsResponseType } from "@/app/api/stats/categories/route";
+import { GetBalanceStatsResponseType } from "@/app/wizard/api/stats/balance/route";
+import { GetCategoriesStatsResponseType } from "@/app/wizard/api/stats/categories/route";
 import SkeletonWrapper from "@/components/SkeletonWrapper";
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { DateToUTCDate, GetFormatterForCurrency } from "@/lib/helpers";
@@ -20,7 +20,6 @@ interface Props {
 }
 
 function CategoriesStats({ userSettings, from, to }: Props) {
-  // 🔹 Fetch overall income & expense
   const balanceQuery = useQuery<GetBalanceStatsResponseType>({
     queryKey: ["overview", "stats", from, to],
     queryFn: () =>
@@ -31,7 +30,6 @@ function CategoriesStats({ userSettings, from, to }: Props) {
       ).then((res) => res.json()),
   });
 
-  // 🔹 Fetch category-specific data
   const statsQuery = useQuery<GetCategoriesStatsResponseType>({
     queryKey: ["overview", "stats", "categories", from, to],
     queryFn: () =>
@@ -96,8 +94,8 @@ function CategoriesCard({
     return { ...item, amount, percentage };
   });
 
-  // Round down all but last, and adjust the last one to make total = 100
   let roundedTotal = 0;
+
   const roundedPercentages = rawPercentages.map((item, index) => {
     if (index === rawPercentages.length - 1) {
       return { ...item, percentage: 100 - roundedTotal };
@@ -109,7 +107,7 @@ function CategoriesCard({
   });
 
   return (
-    <Card className="h-80 w-full col-span-6">
+    <Card className="w-full col-span-6">
       <CardHeader>
         <CardTitle className="grid grid-flow-row justify-between gap-2 text-muted-foreground text-3xl md:grid-flow-col">
           {type === "income" ? "Incomes" : "Expenses"} by category
@@ -118,7 +116,7 @@ function CategoriesCard({
 
       <div className="flex items-center justify-between gap-2">
         {totalAmount === 0 && (
-          <div className="flex h-60 w-full flex-col items-center justify-center text-center">
+          <div className="flex flex-shrink-0 h-60 w-full flex-col items-center justify-center text-center">
             No data for the selected period
             <p className="text-sm text-muted-foreground">
               Select a different period or add new{" "}

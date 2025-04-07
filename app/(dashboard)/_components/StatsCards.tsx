@@ -1,6 +1,6 @@
 "use client";
 
-import { GetBalanceStatsResponseType } from "@/app/api/stats/balance/route";
+import { GetBalanceStatsResponseType } from "@/app/wizard/api/stats/balance/route";
 import SkeletonWrapper from "@/components/SkeletonWrapper";
 import { Card } from "@/components/ui/card";
 import { DateToUTCDate, GetFormatterForCurrency } from "@/lib/helpers";

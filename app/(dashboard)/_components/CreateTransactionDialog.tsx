@@ -28,7 +28,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import CategoryPicker from "./CategoryPicker";
+import CategoryPicker from "@/app/(dashboard)/_components/CategoryPicker";
 import {
   Popover,
   PopoverContent,
@@ -199,9 +199,9 @@ function CreateTransactionDialog({ trigger, type }: Props) {
                         <Calendar
                           mode="single"
                           selected={field.value}
-                          onSelect={value => {
+                          onSelect={(value) => {
                             if (!value) return;
-                            
+
                             field.onChange(value);
                           }}
                           initialFocus

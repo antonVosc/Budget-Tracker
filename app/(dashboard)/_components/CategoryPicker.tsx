@@ -18,7 +18,7 @@ import { TransactionType } from "@/lib/types";
 import { Category } from "@prisma/client";
 import { useQuery } from "@tanstack/react-query";
 import React, { useCallback, useEffect } from "react";
-import CreateCategoryDialog from "./CreateCategoryDialog";
+import CreateCategoryDialog from "@/app/(dashboard)/_components/CreateCategoryDialog";
 import { Check, ChevronsUpDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
